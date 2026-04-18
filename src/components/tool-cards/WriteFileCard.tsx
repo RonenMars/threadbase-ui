@@ -13,8 +13,8 @@ export const WriteFileCard = memo(function WriteFileCard({ result }: { result: W
           <svg className="h-3.5 w-3.5 shrink-0 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
           </svg>
-          <span className="truncate text-xs text-neutral-500">{directory}</span>
-          <span className="text-xs font-semibold text-neutral-200">{basename}</span>
+          <span className="truncate text-xs text-tb-text-muted">{directory}</span>
+          <span className="text-xs font-semibold text-tb-text">{basename}</span>
         </div>
         <span className="rounded border border-green-700/40 bg-green-900/40 px-1.5 py-0.5 text-[10px] text-green-400">
           Created

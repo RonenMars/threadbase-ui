@@ -15,10 +15,10 @@ export const BashTerminalCard = memo(function BashTerminalCard({ result }: { res
 
   return (
     <div className="tool-card">
-      <div className="tool-card-header bg-neutral-900">
+      <div className="tool-card-header bg-tb-bg-surface">
         <div className="flex min-w-0 flex-1 items-center gap-2">
-          <span className="shrink-0 font-mono text-xs text-green-500">$</span>
-          <span className="truncate font-mono text-xs text-neutral-300">{getCommandPreview(result)}</span>
+          <span className="shrink-0 font-mono text-xs text-tb-success">$</span>
+          <span className="truncate font-mono text-xs text-tb-text">{getCommandPreview(result)}</span>
         </div>
         <div className="flex items-center gap-1.5">
           {result.interrupted && (
@@ -29,32 +29,32 @@ export const BashTerminalCard = memo(function BashTerminalCard({ result }: { res
         </div>
       </div>
 
-      <div className="terminal-body overflow-x-auto rounded-b-lg border border-neutral-800 bg-[#0c0c0c]">
+      <div className="terminal-body overflow-x-auto rounded-b-lg border border-tb-border bg-tb-bg">
         {visibleStdout && (
-          <pre className="px-3 py-2 font-mono text-xs leading-5 break-all whitespace-pre-wrap text-neutral-300">
+          <pre className="px-3 py-2 font-mono text-xs leading-5 break-all whitespace-pre-wrap text-tb-text">
             {visibleStdout}
           </pre>
         )}
 
         {result.stderr && !expanded && (
-          <div className="border-t border-neutral-800/50 px-3 py-1 text-[10px] text-amber-400/70">
+          <div className="border-t border-tb-border px-3 py-1 text-[10px] text-tb-warning">
             stderr: {stderrLines.length} line{stderrLines.length !== 1 ? 's' : ''} (expand to view)
           </div>
         )}
         {showStderr && (
-          <pre className="border-t border-neutral-800/50 px-3 py-2 font-mono text-xs leading-5 break-all whitespace-pre-wrap text-amber-400/80">
+          <pre className="border-t border-tb-border px-3 py-2 font-mono text-xs leading-5 break-all whitespace-pre-wrap text-tb-warning">
             {result.stderr}
           </pre>
         )}
 
         {!result.stdout && !result.stderr && (
-          <div className="px-3 py-2 text-xs text-neutral-600 italic">No output</div>
+          <div className="px-3 py-2 text-xs text-tb-text-muted italic">No output</div>
         )}
 
         {shouldCollapse && (
           <button
             onClick={() => setExpanded(!expanded)}
-            className="w-full border-t border-neutral-800/50 bg-neutral-900/30 px-3 py-1.5 text-[10px] text-neutral-500 transition-colors hover:text-neutral-300"
+            className="w-full border-t border-tb-border bg-tb-bg-surface px-3 py-1.5 text-[10px] text-tb-text-muted transition-colors hover:text-tb-text"
           >
             {expanded ? '▲ Collapse' : `▼ Show all (${totalLines} lines)`}
           </button>

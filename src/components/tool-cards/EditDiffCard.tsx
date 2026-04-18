@@ -16,7 +16,7 @@ export const EditDiffCard = memo(function EditDiffCard({ result }: { result: Edi
       <div className="tool-card-header">
         <div className="flex min-w-0 items-center gap-2">
           {/* Header is minimal — DiffViewer renders its own filename header */}
-          <span className="text-xs text-neutral-500 truncate">{result.filePath}</span>
+          <span className="text-xs text-tb-text-muted truncate">{result.filePath}</span>
         </div>
         <div className="flex items-center gap-1.5">
           {result.userModified && (
@@ -44,17 +44,17 @@ function EditDiffCardRawFallback({ result }: { result: EditToolResult }) {
   return (
     <div className="tool-card">
       <div className="tool-card-header">
-        <span className="text-xs text-neutral-500 truncate">{result.filePath}</span>
-        <span className="rounded border border-neutral-700 px-1.5 py-0.5 text-[10px] text-neutral-500">
+        <span className="text-xs text-tb-text-muted truncate">{result.filePath}</span>
+        <span className="rounded border border-tb-border px-1.5 py-0.5 text-[10px] text-tb-text-muted">
           raw
         </span>
       </div>
-      <div className="overflow-x-auto rounded-b-lg border border-neutral-800 bg-neutral-950 p-3 font-mono text-xs text-neutral-400 whitespace-pre">
+      <div className="overflow-x-auto rounded-b-lg border border-tb-border bg-tb-bg p-3 font-mono text-xs text-tb-text-muted whitespace-pre">
         {result.oldString && (
-          <div className="text-red-400/80">- {result.oldString.split('\n').join('\n- ')}</div>
+          <div className="text-tb-diff-removed-text">- {result.oldString.split('\n').join('\n- ')}</div>
         )}
         {result.newString && (
-          <div className="text-green-400/80">+ {result.newString.split('\n').join('\n+ ')}</div>
+          <div className="text-tb-diff-added-text">+ {result.newString.split('\n').join('\n+ ')}</div>
         )}
       </div>
     </div>
