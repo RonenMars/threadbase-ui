@@ -59,12 +59,12 @@ export function MessageNavigation({
     }
 
     return (
-        <div className="flex items-center gap-2 rounded-lg border border-neutral-700 bg-neutral-900 px-3 py-2">
+        <div className="flex items-center gap-2 rounded-lg border border-tb-border bg-tb-bg-surface px-3 py-2">
             {/* Jump to First */}
             <button
                 onClick={onJumpToFirst}
                 disabled={!hasPrevious}
-                className="rounded p-1.5 text-neutral-400 transition-colors hover:bg-neutral-800 hover:text-neutral-200 disabled:cursor-not-allowed disabled:opacity-30"
+                className="rounded p-1.5 text-tb-text-muted transition-colors hover:bg-tb-bg-surface-hover hover:text-tb-text disabled:cursor-not-allowed disabled:opacity-30"
                 title="Jump to first message"
                 aria-label="Jump to first message"
             >
@@ -87,7 +87,7 @@ export function MessageNavigation({
             <button
                 onClick={handlePrevious}
                 disabled={!hasPrevious}
-                className="rounded p-1.5 text-neutral-400 transition-colors hover:bg-neutral-800 hover:text-neutral-200 disabled:cursor-not-allowed disabled:opacity-30"
+                className="rounded p-1.5 text-tb-text-muted transition-colors hover:bg-tb-bg-surface-hover hover:text-tb-text disabled:cursor-not-allowed disabled:opacity-30"
                 title="Previous message"
                 aria-label="Previous message"
             >
@@ -108,7 +108,7 @@ export function MessageNavigation({
 
             {/* Message Counter */}
             <div className="flex-1 text-center">
-                <span className="text-xs text-neutral-400">
+                <span className="text-xs text-tb-text-muted">
                     Message{' '}
                     {isEditing ? (
                         <input
@@ -120,11 +120,11 @@ export function MessageNavigation({
                             onChange={(e) => setInputValue(e.target.value)}
                             onKeyDown={handleKeyDown}
                             onBlur={commitEdit}
-                            className="w-12 [appearance:textfield] rounded border border-neutral-600 bg-neutral-800 px-1 text-center text-xs font-medium text-neutral-300 [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none"
+                            className="w-12 [appearance:textfield] rounded border border-tb-border bg-tb-bg-surface px-1 text-center text-xs font-medium text-tb-text [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none"
                         />
                     ) : (
                         <span
-                            className="cursor-pointer font-medium text-neutral-300 hover:text-white hover:underline"
+                            className="cursor-pointer font-medium text-tb-text hover:text-white hover:underline"
                             onClick={handleCounterClick}
                             title="Click to jump to message"
                         >
@@ -132,7 +132,7 @@ export function MessageNavigation({
                         </span>
                     )}{' '}
                     of{' '}
-                    <span className="font-medium text-neutral-300">
+                    <span className="font-medium text-tb-text">
                         {totalMessages}
                     </span>
                 </span>
@@ -142,7 +142,7 @@ export function MessageNavigation({
             <button
                 onClick={handleNext}
                 disabled={!hasNext}
-                className="rounded p-1.5 text-neutral-400 transition-colors hover:bg-neutral-800 hover:text-neutral-200 disabled:cursor-not-allowed disabled:opacity-30"
+                className="rounded p-1.5 text-tb-text-muted transition-colors hover:bg-tb-bg-surface-hover hover:text-tb-text disabled:cursor-not-allowed disabled:opacity-30"
                 title="Next message"
                 aria-label="Next message"
             >
@@ -165,7 +165,7 @@ export function MessageNavigation({
             <button
                 onClick={onJumpToLast}
                 disabled={!hasNext}
-                className="rounded p-1.5 text-neutral-400 transition-colors hover:bg-neutral-800 hover:text-neutral-200 disabled:cursor-not-allowed disabled:opacity-30"
+                className="rounded p-1.5 text-tb-text-muted transition-colors hover:bg-tb-bg-surface-hover hover:text-tb-text disabled:cursor-not-allowed disabled:opacity-30"
                 title="Jump to last message"
                 aria-label="Jump to last message"
             >

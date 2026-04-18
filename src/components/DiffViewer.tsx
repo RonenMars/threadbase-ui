@@ -39,19 +39,19 @@ export const DiffViewer = memo(function DiffViewer({ hunks, filename }: DiffView
 
   return (
     <div
-      className="overflow-hidden rounded-lg border border-neutral-800 bg-neutral-950"
+      className="overflow-hidden rounded-lg border border-tb-border bg-tb-bg"
       style={{ touchAction: 'manipulation' }}
     >
       {/* Filename header */}
-      <div className="flex items-center justify-between gap-2 border-b border-neutral-800 bg-neutral-900/70 px-3 py-2">
+      <div className="flex items-center justify-between gap-2 border-b border-tb-border bg-tb-bg-surface px-3 py-2">
         <div className="flex min-w-0 items-center gap-1.5">
           <FileEditIcon />
-          <span className="truncate text-[11px] text-neutral-500">{dir}</span>
-          <span className="text-[11px] font-semibold text-neutral-200">{base}</span>
+          <span className="truncate text-[11px] text-tb-text-muted">{dir}</span>
+          <span className="text-[11px] font-semibold text-tb-text">{base}</span>
         </div>
         <div className="flex shrink-0 items-center gap-2 text-[10px]">
-          {addedCount > 0 && <span className="text-green-400">+{addedCount}</span>}
-          {removedCount > 0 && <span className="text-red-400">−{removedCount}</span>}
+          {addedCount > 0 && <span className="text-tb-diff-added-text">+{addedCount}</span>}
+          {removedCount > 0 && <span className="text-tb-diff-removed-text">−{removedCount}</span>}
         </div>
       </div>
 
@@ -72,7 +72,7 @@ export const DiffViewer = memo(function DiffViewer({ hunks, filename }: DiffView
       {shouldCollapse && (
         <button
           onClick={() => setExpanded(!expanded)}
-          className="w-full border-t border-neutral-800/50 bg-neutral-900/50 px-3 py-1.5 text-[10px] text-neutral-500 transition-colors hover:text-neutral-300"
+          className="w-full border-t border-tb-border bg-tb-bg-surface px-3 py-1.5 text-[10px] text-tb-text-muted transition-colors hover:text-tb-text"
         >
           {expanded
             ? '▲ Collapse'
@@ -111,13 +111,13 @@ const HunkBlock = memo(function HunkBlock({ hunk, hunkIndex, expanded, isFirst }
     <div className="relative font-mono text-xs leading-5">
       {/* Hunk header (shown between hunks when expanded) */}
       {hunkIndex > 0 && expanded && (
-        <div className="diff-hunk-header flex items-center justify-between border-y border-neutral-800/50 bg-neutral-900/50 px-3 py-0.5">
-          <span className="text-[10px] text-neutral-500">
+        <div className="diff-hunk-header flex items-center justify-between border-y border-tb-border bg-tb-bg-surface px-3 py-0.5">
+          <span className="text-[10px] text-tb-text-muted">
             @@ -{hunk.oldStart},{hunk.oldLines} +{hunk.newStart},{hunk.newLines} @@
           </span>
           <button
             onClick={handleCopy}
-            className="ml-2 text-[10px] text-neutral-600 transition-colors hover:text-neutral-300"
+            className="ml-2 text-[10px] text-tb-text-muted transition-colors hover:text-tb-text"
             title="Copy hunk"
           >
             {copied ? 'Copied!' : 'Copy'}
@@ -129,7 +129,7 @@ const HunkBlock = memo(function HunkBlock({ hunk, hunkIndex, expanded, isFirst }
       {hunkIndex === 0 && lines.length > 0 && (
         <button
           onClick={handleCopy}
-          className="absolute top-0.5 right-2 z-10 text-[10px] text-neutral-600 transition-colors hover:text-neutral-300"
+          className="absolute top-0.5 right-2 z-10 text-[10px] text-tb-text-muted transition-colors hover:text-tb-text"
           title="Copy hunk"
         >
           {copied ? 'Copied!' : 'Copy'}
@@ -155,7 +155,7 @@ const HunkBlock = memo(function HunkBlock({ hunk, hunkIndex, expanded, isFirst }
 
         return (
           <div key={`${hunkIndex}-${li}`} className={`flex ${cls}`}>
-            <span className="diff-line-num w-10 shrink-0 pr-2 text-right text-neutral-600 select-none">
+            <span className="diff-line-num w-10 shrink-0 pr-2 text-right text-tb-text-muted select-none">
               {lineNum}
             </span>
             <span className="diff-line-prefix w-4 shrink-0 text-center select-none">{prefix}</span>
@@ -169,7 +169,7 @@ const HunkBlock = memo(function HunkBlock({ hunk, hunkIndex, expanded, isFirst }
 
 function FileEditIcon(): JSX.Element {
   return (
-    <svg className="h-3.5 w-3.5 shrink-0 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <svg className="h-3.5 w-3.5 shrink-0 text-tb-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
     </svg>
   )

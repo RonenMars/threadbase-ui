@@ -78,24 +78,24 @@ function MarkdownRenderer({
       // Tables
       table({ children }) {
         return (
-          <div className="my-3 overflow-x-auto rounded-lg border border-neutral-700">
+          <div className="my-3 overflow-x-auto rounded-lg border border-tb-border">
             <table className="md-table">{children}</table>
           </div>
         );
       },
       thead({ children }) {
-        return <thead className="bg-neutral-800/80">{children}</thead>;
+        return <thead className="bg-tb-bg-surface">{children}</thead>;
       },
       th({ children }) {
         return (
-          <th className="border-b border-neutral-700 px-3 py-2 text-left text-xs font-semibold text-neutral-300">
+          <th className="border-b border-tb-border px-3 py-2 text-left text-xs font-semibold text-tb-text">
             {hl(children)}
           </th>
         );
       },
       td({ children }) {
         return (
-          <td className="border-b border-neutral-800 px-3 py-2 text-xs text-neutral-300">
+          <td className="border-b border-tb-border px-3 py-2 text-xs text-tb-text">
             {hl(children)}
           </td>
         );
@@ -104,28 +104,28 @@ function MarkdownRenderer({
       // Headings
       h1({ children }) {
         return (
-          <h1 className="mt-4 mb-2 border-b border-neutral-700 pb-1 text-xl font-bold text-neutral-100">
+          <h1 className="mt-4 mb-2 border-b border-tb-border pb-1 text-xl font-bold text-tb-text">
             {hl(children)}
           </h1>
         );
       },
       h2({ children }) {
         return (
-          <h2 className="mt-4 mb-2 text-lg font-semibold text-neutral-100">
+          <h2 className="mt-4 mb-2 text-lg font-semibold text-tb-text">
             {hl(children)}
           </h2>
         );
       },
       h3({ children }) {
         return (
-          <h3 className="mt-3 mb-1 text-base font-semibold text-neutral-200">
+          <h3 className="mt-3 mb-1 text-base font-semibold text-tb-text">
             {hl(children)}
           </h3>
         );
       },
       h4({ children }) {
         return (
-          <h4 className="mt-2 mb-1 text-sm font-semibold text-neutral-200">
+          <h4 className="mt-2 mb-1 text-sm font-semibold text-tb-text">
             {hl(children)}
           </h4>
         );
@@ -154,7 +154,7 @@ function MarkdownRenderer({
       // Blockquotes
       blockquote({ children }) {
         return (
-          <blockquote className="border-claude-orange/50 my-2 border-l-3 pl-3 text-neutral-400 italic">
+          <blockquote className="border-claude-orange/50 my-2 border-l-3 pl-3 text-tb-text-muted italic">
             {hl(children)}
           </blockquote>
         );
@@ -167,7 +167,7 @@ function MarkdownRenderer({
             href={href}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-blue-400 underline underline-offset-2 hover:text-blue-300"
+            className="text-tb-accent underline underline-offset-2 hover:text-tb-accent"
           >
             {hl(children)}
           </a>
@@ -176,19 +176,19 @@ function MarkdownRenderer({
 
       // Horizontal rule
       hr() {
-        return <hr className="my-3 border-neutral-700" />;
+        return <hr className="my-3 border-tb-border" />;
       },
 
       // Strong / em
       strong({ children }) {
         return (
-          <strong className="font-semibold text-neutral-100">
+          <strong className="font-semibold text-tb-text">
             {hl(children)}
           </strong>
         );
       },
       em({ children }) {
-        return <em className="text-neutral-200 italic">{hl(children)}</em>;
+        return <em className="text-tb-text italic">{hl(children)}</em>;
       },
     }),
     [hl, query],
@@ -275,16 +275,16 @@ function CodeBlock({
 
   return (
     <div className="code-block-wrapper group relative my-3">
-      <div className="flex items-center justify-between rounded-t-lg border-x border-t border-neutral-700 bg-neutral-900 px-3 py-2">
-        <span className="font-mono text-xs text-neutral-500">{language}</span>
+      <div className="flex items-center justify-between rounded-t-lg border-x border-t border-tb-border bg-tb-bg-surface px-3 py-2">
+        <span className="font-mono text-xs text-tb-text-muted">{language}</span>
         <button
           onClick={handleCopy}
-          className="rounded border border-neutral-600 bg-neutral-800 px-2 py-1 text-xs text-neutral-400 opacity-0 transition-opacity group-hover:opacity-100 hover:bg-neutral-700 hover:text-neutral-200"
+          className="rounded border border-tb-border bg-tb-bg-surface px-2 py-1 text-xs text-tb-text-muted opacity-0 transition-opacity group-hover:opacity-100 hover:bg-tb-bg-surface-hover hover:text-tb-text"
         >
           {copied ? "✓ Copied" : "Copy"}
         </button>
       </div>
-      <pre className="overflow-x-auto rounded-b-lg border border-neutral-700 bg-neutral-950 p-4">
+      <pre className="overflow-x-auto rounded-b-lg border border-tb-border bg-tb-bg p-4">
         <code
           className={`language-${language} text-sm`}
           dangerouslySetInnerHTML={{ __html: highlighted }}
@@ -337,7 +337,7 @@ function JSONBlock({
           <span className="font-mono text-xs text-purple-400">JSON</span>
           <button
             onClick={() => setCollapsed(!collapsed)}
-            className="text-xs text-neutral-500 hover:text-neutral-300"
+            className="text-xs text-tb-text-muted hover:text-tb-text"
           >
             {collapsed ? "▶ Expand" : "▼ Collapse"}
           </button>
@@ -350,7 +350,7 @@ function JSONBlock({
         </button>
       </div>
       {!collapsed && (
-        <pre className="max-h-96 overflow-auto rounded-b-lg border border-purple-700/50 bg-neutral-950 p-4">
+        <pre className="max-h-96 overflow-auto rounded-b-lg border border-purple-700/50 bg-tb-bg p-4">
           <code
             className="language-json text-sm"
             dangerouslySetInnerHTML={{ __html: highlighted }}

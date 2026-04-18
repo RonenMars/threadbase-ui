@@ -11,13 +11,13 @@ export const ToolInvocationBadge = memo(function ToolInvocationBadge({ blocks }:
       {blocks.map((block) => (
         <span
           key={block.id}
-          className="inline-flex items-center gap-1 rounded border border-neutral-700/60 bg-neutral-800/80 px-1.5 py-0.5 font-mono text-[10px] text-neutral-400"
+          className="inline-flex items-center gap-1 rounded border border-tb-border bg-tb-bg-surface px-1.5 py-0.5 font-mono text-[10px] text-tb-text-muted"
           title={JSON.stringify(block.input, null, 2)}
         >
           {getToolIcon(block.name)}
-          <span className="text-neutral-300">{getShortToolName(block.name)}</span>
+          <span className="text-tb-text">{getShortToolName(block.name)}</span>
           {getKeyParam(block) && (
-            <span className="max-w-50 truncate text-neutral-500">{getKeyParam(block)}</span>
+            <span className="max-w-50 truncate text-tb-text-muted">{getKeyParam(block)}</span>
           )}
         </span>
       ))}
