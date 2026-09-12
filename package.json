@@ -16,7 +16,6 @@
   "files": ["dist"],
   "scripts": {
     "build": "tsup",
-    "prepare": "tsup",
     "lint": "tsc --noEmit && npx biome check .",
     "format": "npx biome format --write .",
     "test": "vitest run"
